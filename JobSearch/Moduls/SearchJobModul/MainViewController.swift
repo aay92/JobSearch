@@ -157,7 +157,9 @@ extension MainViewController: UICollectionViewDelegate {
         switch sections[indexPath.section] {
         case .recommendations(let sale): break
         case .vacancy(_):
-            print("tap \(indexPath)")
+            let item = collectionView.cellForItem(at: indexPath) as? JobCollectionViewCell
+//            item.configure(data: <#T##Vacancy#>)
+            self.navigationController?.pushViewController(DetailModul(), animated: true)
         }
     }
 }
@@ -207,4 +209,6 @@ extension MainViewController: UICollectionViewDataSource {
             return UICollectionReusableView()
         }
     }
+    
+    
 }

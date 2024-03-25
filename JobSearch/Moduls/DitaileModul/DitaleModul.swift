@@ -158,6 +158,7 @@ class DetailModul: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setConstraint()
+        view.backgroundColor = AppColor.MainViewControllerBG
     }
     
     func configure(){
@@ -187,7 +188,6 @@ class DetailModul: UIViewController {
         
         view.addSubview(scrollView)
         view.addSubview(conformButton)
-
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -220,12 +220,12 @@ class DetailModul: UIViewController {
                 equalTo: textfieldStack.bottomAnchor, constant: 16),
             mapView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             mapView.heightAnchor.constraint(equalToConstant: 150),
-            mapView.widthAnchor.constraint(equalToConstant: view.frame.width - 16),
+            mapView.widthAnchor.constraint(equalToConstant: view.bounds.width - 16),
             
             descriptionLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 16),
             descriptionLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 200),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: view.frame.width - 16),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 16),
         
             yourTasksTitleLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
             yourTasksTitleLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
@@ -234,7 +234,7 @@ class DetailModul: UIViewController {
             yourTasksLabel.topAnchor.constraint(equalTo: yourTasksTitleLabel.bottomAnchor, constant: 16),
             yourTasksLabel.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             yourTasksLabel.heightAnchor.constraint(equalToConstant: 200),
-            yourTasksLabel.widthAnchor.constraint(equalToConstant: view.frame.width - 16),
+            yourTasksLabel.widthAnchor.constraint(equalToConstant: view.bounds.width - 16),
             
             questionLabel.topAnchor.constraint(equalTo: yourTasksLabel.bottomAnchor, constant: 16),
             questionLabel.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 16),
@@ -242,7 +242,7 @@ class DetailModul: UIViewController {
                      
             conformButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             conformButton.heightAnchor.constraint(equalToConstant: 50),
-            conformButton.widthAnchor.constraint(equalToConstant: view.frame.width - 16),
+            conformButton.widthAnchor.constraint(equalToConstant: view.bounds.width - 16),
             conformButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }

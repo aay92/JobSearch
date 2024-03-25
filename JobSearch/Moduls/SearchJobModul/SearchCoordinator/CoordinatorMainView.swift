@@ -13,5 +13,11 @@ class MainViewControllerCoordinator: BaseCoordinator {
         mainViewController.mainViewControllerCoordinator = self
         navigationController.pushViewController(mainViewController, animated: true)
     }
-
+    
+    func moveDetailsVC(){
+        let coordinator = DitaileCoordinator(navigationController: navigationController)
+        add(coordinator: coordinator)
+        coordinator.start()
+        coordinator.remove(coordinator: coordinator)
+    }
 }

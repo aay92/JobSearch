@@ -8,7 +8,7 @@ class TabBar: UITabBarController, UITabBarControllerDelegate {
     
     private let arraysVC = [MainViewController(),
                             FavoriteVC(),
-                            DetailModul(),
+                            UIViewController(),
                             UIViewController(),
                             UIViewController()]
     

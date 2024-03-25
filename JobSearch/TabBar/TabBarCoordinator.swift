@@ -13,4 +13,11 @@ class TabBarCoordinator: BaseCoordinator {
         tabBar.tabBarCoordinator = self
         navigationController.pushViewController(tabBar, animated: true)
     }
+    
+    func moveMainVC(){
+        let vc = MainViewControllerCoordinator(navigationController: navigationController)
+        add(coordinator: vc)
+        vc.start()
+        vc.remove(coordinator: vc)
+    }
 }
