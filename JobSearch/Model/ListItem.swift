@@ -1,8 +1,6 @@
-//
-//  ListItem.swift
-//  JobSearch
-//
-//  Created by Aleksey Alyonin on 16.03.2024.
-//
-
 import Foundation
+
+struct ListItem {
+    let title: String
+    let images: String
+}

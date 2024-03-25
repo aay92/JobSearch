@@ -58,9 +58,11 @@ class MainViewController: UIViewController {
     
     private func setConstrane(){
         view.backgroundColor = AppColor.MainViewControllerBG
-        view.addSubview(searchBarView)
-        view.addSubview(jobButton)
-        view.addSubview(collectionView)
+
+        [searchBarView,
+         jobButton,
+         collectionView].forEach(view.addSubview(_:))
+        
         
         NSLayoutConstraint.activate([
             searchBarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -87,9 +89,9 @@ extension MainViewController {
             guard let self = self else { return nil }
             let section = self.sections[sectionsIndex]
             switch section {
-            case .sales(_):
+            case .recommendations(_):
                 return self.createSaleSection()
-            case .category(_):
+            case .vacancy(_):
                 return self.createCategorySection()
             }
         }
@@ -152,6 +154,11 @@ extension MainViewController {
 //MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch sections[indexPath.section] {
+        case .recommendations(let sale): break
+        case .vacancy(_):
+            print("tap \(indexPath)")
+        }
     }
 }
 
@@ -169,7 +176,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         switch sections[indexPath.section] {
-        case .sales(let sale):
+        case .recommendations(let sale):
 
             guard  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HintCollectionViewCell.indicator, for: indexPath) as? HintCollectionViewCell
             else {
@@ -178,7 +185,7 @@ extension MainViewController: UICollectionViewDataSource {
             cell.configureCell(name: sale[indexPath.row].images)
             return cell
             
-        case .category( let category):
+        case .vacancy( let category):
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: JobCollectionViewCell.indicator, for: indexPath) as? JobCollectionViewCell
             else {
                 return UICollectionViewCell()
@@ -199,12 +206,5 @@ extension MainViewController: UICollectionViewDataSource {
         default:
             return UICollectionReusableView()
         }
-    }
-}
-
-
-extension MainViewController: UISearchBarDelegate,UISearchDisplayDelegate, UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text!)
     }
 }

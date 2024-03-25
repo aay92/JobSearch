@@ -1,8 +1,7 @@
-//
-//  AppFont.swift
-//  JobSearch
-//
-//  Created by Aleksey Alyonin on 13.03.2024.
-//
+import UIKit
 
-import Foundation
+struct AppFont {
+    static func regular(ofSize size: CGFloat) -> UIFont {
+        return UIFont(name: "SF Pro Display", size: size) ?? .systemFont(ofSize: size)
+    }
+}

@@ -13,10 +13,11 @@ class HintCollectionViewCell: UICollectionViewCell {
         return view
     }()
     
-    private let saleImageView: UIImageView = {
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .none
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "avatar")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -45,16 +46,14 @@ class HintCollectionViewCell: UICollectionViewCell {
      func setupView(){
         backgroundColor = .clear
         addSubview(hintViewBG)
-        addSubview(saleImageView)
+        addSubview(avatarImageView)
         addSubview(secondLabel)
          
     }
     func configureCell(name: String){
-        saleImageView.image = UIImage(named: name)
+        avatarImageView.image = UIImage(named: name)
     }
-    func configureCellFake(name: String){
-        saleImageView.image = UIImage(systemName: name)
-    }
+   
      func setConstraints(){
          NSLayoutConstraint.activate([
             hintViewBG.topAnchor.constraint(equalTo: topAnchor, constant: 0),
@@ -62,9 +61,9 @@ class HintCollectionViewCell: UICollectionViewCell {
             hintViewBG.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             hintViewBG.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
             
-            saleImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            saleImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            saleImageView.heightAnchor.constraint(equalToConstant: 20),
+            avatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            avatarImageView.heightAnchor.constraint(equalToConstant: 20),
             
             secondLabel.topAnchor.constraint(equalTo: topAnchor, constant: 58),
             secondLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),

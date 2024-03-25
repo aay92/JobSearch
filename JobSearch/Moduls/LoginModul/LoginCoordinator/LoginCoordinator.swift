@@ -9,9 +9,16 @@ class LoginCoordinator: BaseCoordinator {
     }
     
     override func start() {
-        let mainViewController = MainViewController()
-        mainViewController.mainViewControllerCoordinator = self
-        navigationController.pushViewController(mainViewController, animated: true)
+        let login = LoginVC()
+        login.loginCoordinator = self
+        navigationController.pushViewController(login, animated: true)
     }
-
+    
+    func moveSendCodeVC(){
+        let sendCode = SendCodeCoordinator(
+            navigationController: navigationController)
+        add(coordinator: sendCode)
+        sendCode.start()
+        sendCode.remove(coordinator: sendCode)
+    }
 }

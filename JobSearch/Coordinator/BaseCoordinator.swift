@@ -1,8 +1,7 @@
-//
-//  BaseCoordinator.swift
-//  JobSearch
-//
-//  Created by Aleksey Alyonin on 13.03.2024.
-//
+import UIKit
 
-import Foundation
+class BaseCoordinator: Coordinator {
+    var childCoordinator: [Coordinator] = []
+    func start() {}
+    func startTabBar(){}
+}
