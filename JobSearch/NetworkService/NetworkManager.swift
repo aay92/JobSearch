@@ -14,8 +14,10 @@ class ServiceLayer {
                 } else if let jsonData = data,
                           let posts = try? JSONDecoder().decode(Job.self, from: jsonData) {
                     continuation.resume(returning: posts)
-                } else {
-                    assertionFailure("Error from get request")
+                } 
+                else {
+                    print("Ошибка получения даты с сервера")
+                    continuation.resume(returning: Job(offers: [], vacancies: []))
                 }
             }.resume()
         }

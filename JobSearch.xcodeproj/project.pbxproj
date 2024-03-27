@@ -49,6 +49,7 @@
 		5BF326922BB04131005DFF04 /* DitaileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF326912BB04131005DFF04 /* DitaileCoordinator.swift */; };
 		5BF326952BB08288005DFF04 /* SheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF326942BB08288005DFF04 /* SheetVC.swift */; };
 		5BF326972BB0887C005DFF04 /* SheetVCCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF326962BB0887C005DFF04 /* SheetVCCoordinator.swift */; };
+		5BF326992BB1E9A9005DFF04 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF326982BB1E9A9005DFF04 /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		5BF326912BB04131005DFF04 /* DitaileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DitaileCoordinator.swift; sourceTree = "<group>"; };
 		5BF326942BB08288005DFF04 /* SheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetVC.swift; sourceTree = "<group>"; };
 		5BF326962BB0887C005DFF04 /* SheetVCCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetVCCoordinator.swift; sourceTree = "<group>"; };
+		5BF326982BB1E9A9005DFF04 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 		5BBBAE0F2BA9F148001E2C72 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5BF326982BB1E9A9005DFF04 /* MainViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 			files = (
 				5BBBAD9F2BA20F01001E2C72 /* MainViewController.swift in Sources */,
 				5BBBAE062BA61072001E2C72 /* JobCollectionViewCell.swift in Sources */,
+				5BF326992BB1E9A9005DFF04 /* MainViewModel.swift in Sources */,
 				5BBBADF52BA36CC2001E2C72 /* UITextField + Ext.swift in Sources */,
 				5BF326922BB04131005DFF04 /* DitaileCoordinator.swift in Sources */,
 				5BF326882BAEA3DC005DFF04 /* FavoriteVC.swift in Sources */,

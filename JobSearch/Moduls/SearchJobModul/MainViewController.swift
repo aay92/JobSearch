@@ -5,6 +5,9 @@ class MainViewController: UIViewController {
     weak var mainViewControllerCoordinator: MainViewControllerCoordinator?
     private let sections = MockData.shared.pageData
 
+    var viewModel = MainViewModel()
+    private var data: Job?
+    
     private lazy var searchBarView: SearchBarView = {
         .configure(view: $0) { view in
             view.clipsToBounds = true
@@ -34,9 +37,22 @@ class MainViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        getJobsWithServer()
         setupViews()
         setConstrane()
         setDelegates()
+    }
+    
+    private func getJobsWithServer(){
+        Task {
+            var jobs = await self.viewModel.getDataWithJobs()
+            if (jobs.vacancies.count == 0) || (jobs.offers.count == 0) {
+                print("Нет элементов с сервера \(jobs)")
+            } else {
+                print(jobs.vacancies.count)
+                print(jobs.offers.count)
+            }
+        }
     }
 
     func setupViews(){
